@@ -1,0 +1,40 @@
+{% extends 'layout.html' %}
+{% block content %}
+{% load static %}
+
+<header class="row btn-light">
+    <div class="col-md-4">
+        <img src="{% static 'portafolio/reichiquita.jpg' %}" alt="" width="350" height="250">
+    </div>
+    <div class="col-md-8 my-auto">
+        <h1> yo soy <strong> Jesus Macias </strong></h1>
+        <h3> "La tormenta que se acerca" </h3>
+        <p> antes de todo hay q darle creditos al que logro resolver el problema de los archivos asies 
+            hablo de mi pana el ramon xd. 
+            Vivo por la patrona y muero por la patrona hablo de la chiquipoderosa rei chiquita conocida por 
+            varios como un dios antiguo, es tan fuerte que se solea a goku con solo parpadear
+        </p>
+        <a class="btn btn-primay btn-lg rounded-0 my-3" href="{% static 'portafolio/curriculum.pdf'%}" target="-blank">
+            Donwload CV </a>
+    </div>
+</header>
+<div class="row my-4 texte-center">
+    <h1>Mis proyectos </h1>
+    <p>Nada dura para siempre </p>
+
+    {% for project in projects %}
+        <div class="col -md-4 p-4">
+            <div class="card card-project"  style="background-color: #8b8a8a;">
+                <h2>{{project.title}}</h2>
+                <p>{{project.description}}</p>
+                <img src ="{{project.image.url}}" alt="{{project.title}}" class="card-img-top">
+
+                {% if project.url %}
+                <a href=" {{project.url}}" class="btn btn-light rounded-0 btn-sm">{{project.url}}</a>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+    {% endblock %}
+</div>
